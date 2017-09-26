@@ -1,0 +1,111 @@
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="bg-info" style="border: 1px solid maroon; margin-bottom: 10px;">
+                <p style="font-size: 18px; text-align: center;">{{strings[0]}}</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Question</td>
+                            <td>{{broadcast}}</td>
+                            <td>Answer</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>What is your name</td>
+                            <td><input type="text" ng-model="name"></td>
+                        </tr>
+                        <tr>
+                            <td>What is your age</td>
+                            <td><input type="number" ng-model="age"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>Your details:</div>
+                <table class="table table-bordered">
+                    <tr class="row">
+                        <td class="col-md-4">Name: </td>
+                        <td class="col-md-8" ng-bind="name"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-md-4">Age: </td>
+                        <td class="col-md-8" ng-bind="age"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="alert-danger" style="border: 1px solid maroon; margin-bottom: 10px; padding-bottom: 5px;">
+                <p style="font-size: 18px; text-align: center;">{{strings[5]}}</p>
+                <div>
+                    <label ng-bind="userName"></label>
+                </div>
+            </div>
+            <div class="alert-success" style="border: 1px solid maroon; margin-bottom: 10px;">
+                <p style="font-size: 18px; text-align: center;">{{strings[1]}}</p>
+                <div style="padding: 4px;">
+                    <select>
+                        <option ng-repeat='country in countries'>{{country}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="alert-danger" style="border: 1px solid maroon; margin-bottom: 10px; padding-bottom: 5px;">
+                <p style="font-size: 18px; text-align: center;">{{strings[2]}}</p>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-4">
+                        <span>{{strings[3]}}</span>
+                        <select>
+                            <option ng-repeat="country in countries | orderBy ">{{country}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>{{strings[4]}}</span>
+                        <select>
+                            <option ng-repeat="car in cars">{{car | appendStringFilter}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="alert-warning">
+                <p style="font-size: 18px; text-align: center; border: 1px solid maroon; margin-bottom: 10px;">Events</p>
+                <table class="table table-striped table-inverse">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>ng-click</th>
+                      <th>Increase Count</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><button class="btn btn-primary" ng-click="count = count + 1">ng-click use</button></td>
+                      <td>{{count}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><button class="btn btn-primary" ng-dblclick="counter = counter + 1">ng-dblclick use</button></td>
+                      <td>{{counter}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <form>
+                <p>Try writing in the input field (Use of ng-pristine and ng-dirty)</p>
+                <input ng-model="myName">
+            </form>
+            <div class="alert-danger" style="border: 1px solid maroon; margin-bottom: 10px; padding-bottom: 5px;">
+                <p>Show span using a ng-click function</p>
+                <button class="btn btn-success" ng-click="showSpan()">Show span</button>
+                <span id="newElement" ng-show="buttonClicked" style="color: green">I am a span shown on click of button using a flag.</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="alert-danger" style="border: 1px solid maroon; margin-bottom: 10px; padding-bottom: 5px;">
+                <span my-directive></span>
+            </div>
+            <div class="alert-danger" style="border: 1px solid maroon; margin-bottom: 10px; padding-bottom: 5px;">
+                <directive1 person-data="person"></directive1>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="serviceUseDiv">
+    <span style="font-size: x-large;color: black;">{{svcCtrl.heading}}</span>
+    <div class="bg-danger">
+        <button class="btn btn-success" ng-click="svcCtrl.getCredentials()">Get Credentials from Controller</button>
+        <span ng-show="svcCtrl.clicked" style="color: red">{{svcCtrl.credentials}}</span>
+    </div>
+    <div class="bg-success">
+        <button class="btn btn-success" ng-click="svcCtrl.getCredentialsInSvc()">Get Credentials from Inner Service</button>
+        <span ng-show="svcCtrl.inSvcCalled" style="color: red">{{svcCtrl.innerCredentials}}</span>
+    </div>
+    <div class="bg-info">
+        <button class="btn btn-success" ng-click="svcCtrl.getCredentialsOutSvc()">Get Credentials from Outer Service</button>
+        <span ng-show="svcCtrl.outSvcCalled" style="color: red">{{svcCtrl.outerCredentials}}</span>
+    </div>
+    <div class="bg-warning">
+        <button class="btn btn-success" ng-click="svcCtrl.getFactoryCred()">Get Credentials from Factory</button>
+        <span ng-show="svcCtrl.factoryCalled" style="color: red">{{svcCtrl.getCredFact}}</span>
+    </div>
+
+    <!-- Use of $emit, $broadcast and $on -->
+    <div class="bg-success">
+        <input type="text" ng-model="broadCastMessage"/>
+        <button class="btn btn-success" ng-click="svcCtrl.broadcastEvent()">Broadcast me!!</button>
+    </div>
+    <div class="broadCastDiv" ng-controller="broadCastUseCtrl">
+        <div ng-include="'./emitterUse/broadcastUse.html'"></div>
+    </div>
+    <div class="bg-danger text-white">
+        <p class="text-danger">Retrieving emit data:
+            <span style="color: blue;">{{emitMsg}}</span>
+        </p>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Showing data in the controller</h3>
+        </div>
+        <div class="panel-body">
+            <span class="text-success">{{personData.name}}</span>
+            <span class="text-success">{{personData.age}}</span>
+            <span class="text-success">{{personData.gender}}</span>
+            <span class="text-danger">
+                <input type="text" ng-model="passingMsg">
+            </span>
+        </div>
+    </div>
+    <!-- child scope -->
+    <div directives person-data="personData" passing-message="passingMsg"></div>
+</div>

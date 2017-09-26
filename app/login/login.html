@@ -1,0 +1,28 @@
+<div class="row">
+    <form class="col-md-4 loginForm">
+        <div>
+            <table class="table table-inverse">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <img src="/images/login.png" alt="Avatar" class="avatar">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><input type="text" placeholder="Enter Username" ng-model="uName"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Password</b></td>
+                        <td><input type="password" placeholder="Enter Password" ng-model="pswd"></td>
+                    </tr>
+                    <tr>
+                        <td class="login_error_msg" ng-if="status">{{responseMsg}}</td>
+                        <td colspan="2"><button class="btn btn-success" ng-click="loginBtn(uName, pswd)">Login</button></td>
+                        <td colspan="2"><button class="btn btn-alert" ng-click="reset()">Reset</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

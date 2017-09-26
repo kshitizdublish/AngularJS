@@ -1,0 +1,94 @@
+.logo-img {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid cornflowerblue;
+}
+.navbar.navbar-inverse {
+    border-radius: 0;
+    margin-bottom: 0;
+    border: 3px;
+}
+/*.nav.navbar-nav {
+    font-size: 18px;
+}*/
+.commonPage{
+    background-image: url('./images/website-background.jpg');
+    height: 924px;
+}
+.aboutUs {
+    font-size: 16px;
+    color: white;
+    margin: 40px 2px 10px -3px;
+}
+.contactUs {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: bisque;
+}
+.details_banner {
+    font-size: 18px;
+    color: black;
+}
+.menuBar {
+    border: 2px solid;
+}
+.menuBar a {
+    color: red;
+}
+.menuBar {
+    height: 900px;
+    background: lightgrey;
+    opacity: 0.5;
+}
+/*form.ng-pristine {
+    background-color:lightblue;
+}
+form.ng-dirty {
+    background-color:pink;
+}*/
+.serviceUseDiv div {
+    padding: 10px;
+}
+.broadCastDiv {
+    padding: 0;
+    margin: -20px;
+}
+.loginForm {
+    margin: 6% 10% 0 32%;
+    border: 2px solid skyblue;
+    background-color: bisque;
+}
+.loginForm tr td {
+    text-align: center;
+}
+.loginForm tbody {
+    float: right;
+}
+.login_error_msg {
+    color: red;
+}
+.customerTable {
+    /*margin-left: 15px;*/
+    margin-top: 5px;
+}
+.tableHeading {
+    background: grey;
+}
+.addCustomerImg {
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.fName {
+    margin-right: 5px;
+}
+.form-group .dropdown {
+    padding-left: 0;
+}
+input.ng-dirty.ng-invalid{
+    border-color:red;
+}
+.error-message {
+    color: red;
+}

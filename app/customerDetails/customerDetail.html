@@ -1,0 +1,138 @@
+<div>
+    <div class="customerDir">
+        <div class="col-md-9 customerTable">
+            <table class="table">
+                <thead>
+                  <tr class="tableHeading">
+                    <th>Customer_Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                    <th>{{edit}}</th>
+                    <th>{{delete}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="success" ng-repeat="customer in allCustomers track by customer.customer_id">
+                        <td>{{customer.customer_id}}</td>
+                        <td>{{customer.firstName}} {{customer.lastName}}</td>
+                        <td>{{customer.age}}</td>
+                        <td>{{customer.gender}}</td>
+                        <td>{{customer.mobileNumber}}</td>
+                        <td class="editDetail">
+                            <a class="btn" data-toggle="modal" data-target="#editModal"
+                                ng-click="editDetails(customer)"><img src="./images/editDetail.png"/>
+                            </a>
+                        </td>
+                        <td class="deleteDetail"><img src="./images/deleteDetail.png" ng-click="deleteCustomer(customer)"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2">
+            <img src="./images/addCustomer.png" class="addCustomerImg" data-toggle="modal" data-target="#myModal"/>
+        </div>
+    </div>
+    <!-- show modal for adding a new customer -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Customer Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-md-3">Name</label>
+                            <input class="col-md-4 fName" type="text" class="form-control" placeholder="First Name" ng-required="true" ng-minlength="2"     ng-model="fName"/>
+                            <span class="error-message" ng-show="myform.firstname.$dirty
+                                && myform.firstname.$error.required">The First Name is Mandatory
+                            </span>
+                            <span class="error-message" ng-show="myform.firstname.$dirty
+                                && myform.firstname.$error.minlength">The First Name should be minimum 2 characters</span>
+                            <input class="col-md-4" type="text" class="form-control" placeholder="Last Name" ng-required="true" ng-model="lName"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Gender</label>
+                            <div class="col-md-8">
+                                <input type="radio" name="gender" value="male" checked ng-model="gender"> Male
+                                <input type="radio" name="gender" value="female" ng-model="gender"> Female
+                                <input type="radio" name="gender" value="other" ng-model="gender"> Other
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Age</label>
+                            <input class="col-md-4" type="number" class="form-control" min="10" max="75" maxlength="2" placeholder="Age" ng-model="age"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Mobile Number</label>
+                            <input class="col-md-4" ng-model="mobileNumber" type="number" class="form-control" minlength="10" maxlength="10"/>
+                            <span class="error-message" ng-show="myform.phoneNumber.$dirty
+                                && myform.phoneNumber.$invalid">The phone number field should be of 10 digits
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="saveNewCustomer()" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- show modal for editing a customer details -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Customer Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-md-3">Name</label>
+                            <input class="col-md-4 fName" type="text" class="form-control" placeholder="First Name" ng-required="true" ng-minlength="2"     ng-model="customer.firstName"/>
+                            <span class="error-message" ng-show="myform.firstname.$dirty
+                                && myform.firstname.$error.required">The First Name is Mandatory
+                            </span>
+                            <span class="error-message" ng-show="myform.firstname.$dirty
+                                && myform.firstname.$error.minlength">The First Name should be minimum 2 characters</span>
+                            <input class="col-md-4" type="text" class="form-control" placeholder="Last Name" ng-required="true" ng-model="customer.lastName"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Gender</label>
+                            <div class="col-md-8">
+                                <input type="radio" name="gender" value="male" ng-model="customer.gender"> Male
+                                <input type="radio" name="gender" value="female" ng-model="customer.gender"> Female
+                                <input type="radio" name="gender" value="other" ng-model="customer.gender"> Other
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Age</label>
+                            <input class="col-md-4" type="number" class="form-control" min="10" max="75" maxlength="2" placeholder="Age" ng-model="customer.age"/>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Mobile Number</label>
+                            <input class="col-md-4" ng-model="customer.mobileNumber" type="number" class="form-control" minlength="10" maxlength="10"/>
+                            <span class="error-message" ng-show="myform.phoneNumber.$dirty
+                                && myform.phoneNumber.$invalid">The phone number field should be of 10 digits
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="editModalclass">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="updateCustomer()" data-dismiss="modal">Update detail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9">
+    <head>
+        <title>Esko Gaphics</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="app.css">
+        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" ng-init="selectedTab = 'home'">
+                    <li ng-class="{'active':selectedTab === 'home'}" ng-click="selectedTab = 'home'"><a href="#home">Home</a></li>
+                    <li ng-class="{'active':selectedTab === 'develop'}" ng-click="selectedTab = 'develop'"><a href="#develop">Develop</a></li>
+                    <li ng-class="{'active':selectedTab === 'users'}" ng-click="selectedTab = 'users'"><a href="#service">Service</a></li>
+                    <li ng-class="{'active':selectedTab === 'customerDetail'}" ng-click="selectedTab = 'customerDetail'"><a href="#customerDetail">Customer Detail</a></li>
+                    <li ng-class="{'active':selectedTab === 'contactUs'}" ng-click="selectedTab = 'contactUs'"><a href="#contactUs">Contact Us</a>
+                    </li>
+                    <li ng-class="{'active':selectedTab === 'login'}" ng-click="selectedTab = 'login'"><a href="#login">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div ng-view class="commonPage"></div>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+        <script src="home/homeCtrl.js"></script>
+        <script src="components/version/version.js"></script>
+        <script src="contactUs/contactUsCtrl.js"></script>
+        <script src="commonDirectives/directive1Ctrl.js"></script>
+        <script src="develop/developCtrl.js"></script>
+        <script src="myServices/outerService.svc.js"></script>
+        <script src="servicesUse/serviceUseCtrl.js"></script>
+        <script src="login/loginCtrl.js"></script>
+        <script src="modal/addCustomerModal.dir.js"></script>
+        <script src="customerDetails/customerDetailCtrl.js"></script>
+        <script src="emitterUse/broadCastUseCtrl.js"></script>
+        <script src="components/version/version-directive.js"></script>
+        <script src="components/version/interpolate-filter.js"></script>
+    </body>
+</html>
